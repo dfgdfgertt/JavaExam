@@ -22,6 +22,7 @@ public class SinhVien {
 
     private float diemTongKet;
 
+
     public String getId() {
         return id;
     }
@@ -68,6 +69,16 @@ public class SinhVien {
         this.diemTongKet = diemTongKet;
     }
 
+    public SinhVien(String id, String name, String email, float bonus, float report, float app, float lt) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.bonus = bonus;
+        this.report = report;
+        this.app = app;
+        this.lt = lt;
+    }
+
     public List<SinhVien> top10(List<SinhVien> list){
         list.sort(this::compare);
         //list.forEach(x -> System.out.println(x));
@@ -110,17 +121,19 @@ public class SinhVien {
     }
 
     public int dat(){
-        if (diemTongKet > 4.5) {
+        if (this.diemTongKet >= 4.5) {
             return 1;
-        }else
+        }else {
             return -1;
+        }
     }
+
     public int rank(){
-        if (diemTongKet >= 8 ) {
+        if (this.diemTongKet >= 8 ) {
             return 1;
-        }else if (diemTongKet >= 6.5 ) {
+        }else if (this.diemTongKet >= 6.5 ) {
             return 2;
-        }else if (diemTongKet >= 5) {
+        }else if (this.diemTongKet >= 5) {
             return 3;
         };
           return 0;
